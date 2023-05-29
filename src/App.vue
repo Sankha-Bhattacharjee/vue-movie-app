@@ -1,30 +1,31 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v-app>
+    <v-app-bar color="primary" class="pr-10 pl-10">
+      <v-app-bar-title>Movies DB</v-app-bar-title>
+      <template v-slot:append>
+        <v-btn>Movies</v-btn>
+        <v-btn>TV Shows</v-btn>
+
+        <v-btn icon="mdi-magnify"></v-btn>
+      </template>
+    </v-app-bar>
+    <search-bar/>
+    <v-main>
+      <vue-router />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import SearchBar from './components/SearchBar.vue';
+export default {
+  name: "App",
+  components: {
+    SearchBar
+},
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
