@@ -28,10 +28,12 @@
 
 <script>
 export default {
-  data: () => ({
+  data() {
+    return {
     loaded: false,
     loading: false,
-  }),
+    }
+  },
 
   methods: {
     onClick() {
