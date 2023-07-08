@@ -4,6 +4,7 @@
     elevation="8"
     max-width="80vw"
   >
+  <v-card-title class="titleText">Trending Today</v-card-title>
     <v-slide-group
       v-model="model"
       class="pa-4"
@@ -11,27 +12,16 @@
       show-arrows
     >
       <v-slide-group-item
-        v-for="n in 15"
+        v-for="n in sliderMovieAndShowsList"
         :key="n"
-        v-slot="{ isSelected, toggle, selectedClass }"
       >
         <v-card
           color="grey-lighten-1"
-          :class="['ma-4', selectedClass]"
+          class="ma-4"
           height="250"
           width="300"
-          @click="toggle"
         >
-          <div class="d-flex fill-height align-center justify-center">
-            <v-scale-transition>
-              <v-icon
-                v-if="isSelected"
-                color="white"
-                size="48"
-                icon="mdi-close-circle-outline"
-              ></v-icon>
-            </v-scale-transition>
-          </div>
+        <img :src="'https://image.tmdb.org/t/p/w500'+n.poster_path" height="250" width="300"/>
         </v-card>
       </v-slide-group-item>
     </v-slide-group>
@@ -40,10 +30,26 @@
 
 <script>
   export default {
+    created(){
+      this.$store.dispatch("fetchTrendingMoviesAndShows");
+    },
     data() {
         return {
             model: null,
         }
+    },
+    computed:{
+      sliderMovieAndShowsList(){
+        return this.$store.getters.getLatestMovieAndShowsList;
+      }
     }
   }
 </script>
+
+<style scoped>
+.titleText{
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: bold;
+}
+</style>
