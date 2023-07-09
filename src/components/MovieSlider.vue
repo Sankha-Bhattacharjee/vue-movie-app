@@ -31,14 +31,32 @@
 <script>
   export default {
     created(){
-      this.$store.dispatch("fetchTrendingMoviesAndShows");
+      this.sliderRouteName = this.$route.name;
     },
     data() {
         return {
             model: null,
+            sliderRouteName: ''
         }
     },
+    watch:{
+      getSliderRouteName(val){
+        var params ="";
+       // console.log("watcher",val)
+        if(val === "display-grid"){
+          params = "all";
+        }else if(val === "movies"){
+          params = "movie";
+        }else {
+          params = "tv";
+        }
+        this.$store.dispatch("fetchBothTrendingMoviesAndShows", params);
+      }
+    },
     computed:{
+      getSliderRouteName(){
+        return this.$route.name;
+      },
       sliderMovieAndShowsList(){
         return this.$store.getters.getLatestMovieAndShowsList;
       }

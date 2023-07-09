@@ -1,5 +1,5 @@
 export default {
-    setTrendingMovieandShowsList(state, payload) {
+    setTrendingMovieAndShowsList(state, payload) {
         state.latestMovieAndShowsList = payload;
     },
     setTrendingMoviesList(state, payload) {
@@ -8,7 +8,7 @@ export default {
     setTrendingShowsList(state, payload) {
         state.trendingShowsList = payload;
     },
-    setTopratedMovieList(state, payload) {
+    setTopratedList(state, payload) {
         state.topRatedList = payload;
     },
     setUpcomingMovieList(state, payload) {
