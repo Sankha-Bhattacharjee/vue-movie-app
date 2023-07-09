@@ -11,7 +11,7 @@ export default{
     getTopRatedList(state){
         return state.topRatedList;
     },
-    getupcomingList(state){
+    getUpcomingList(state){
         return state.upcomingList;
     }
 }

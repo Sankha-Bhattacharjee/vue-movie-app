@@ -14,9 +14,10 @@
 
     <search-bar />
     <movie-slider />
-    <display-grid />
     <v-main>
-      <vue-router />
+      <router-view>
+        
+      </router-view>
     </v-main>
     <footer-bar />
   </v-app>
@@ -26,14 +27,12 @@
 import SearchBar from "./components/SearchBar.vue";
 import MovieSlider from "./components/MovieSlider.vue";
 import FooterBar from "./components/FooterBar.vue";
-import DisplayGrid from "./components/DisplayGrid.vue";
 export default {
   name: "App",
   components: {
     SearchBar,
     MovieSlider,
-    FooterBar,
-    DisplayGrid
+    FooterBar
   },
 };
 </script>

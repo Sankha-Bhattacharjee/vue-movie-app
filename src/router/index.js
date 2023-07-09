@@ -1,10 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import App from '../../src/App.vue'
+import MoviePage from '../components/MoviePage.vue'
+import DisplayGrid from '../components/DisplayGrid.vue'
+import ShowsPage from '../components/ShowsPage.vue'
 const routes = [
   {
     path: '/',
-    name: 'app',
-    component: App
+    name: 'display-grid',
+    component: DisplayGrid
+  },
+  {
+    path: '/movies',
+    name: 'movies',
+    component: MoviePage
+  },
+  {
+    path: '/shows',
+    name: 'shows',
+    component: ShowsPage
   },
 ]
 
